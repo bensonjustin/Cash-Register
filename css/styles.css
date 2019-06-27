@@ -1,8 +1,16 @@
 #inputBox{
     width: 200px;
     height: 50px;
+    background: #e2e2e2;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
 }
-.num{
+button{
     height: 50px;
     width: 50px;
+    background: #ada7a7;
+    font-family: 'Poppins', sans-serif;
+    margin: 5px;
+    border-radius: 10px;
 }
