@@ -9,11 +9,11 @@ let calculator = (function(){
     for (let i = 0; i<clickNum.length; i++){
     clickNum[i].addEventListener('click', dispNum);
     function dispNum(){
-        if (inputBox.textContent.length < 10 && !holdOp){
+        if (inputBox.textContent.length < 10 && !holdOp && !inputBox.textContent.includes('$')){
             inputBox.textContent = inputBox.textContent + document.getElementsByClassName('num')[i].innerHTML;
             lastValue = inputBox.textContent
             console.log('lastValue ' + lastValue)
-        }else if (lastValue || lastValue === 0 && holdOp !== 'equal'){
+        }else if (inputBox.textContent.length < 10 && lastValue || lastValue === 0 && holdOp !== 'equal' && !inputBox.textContent.includes('$')){
             inputBox.textContent = inputBox.textContent + document.getElementsByClassName('num')[i].innerHTML;
             currentValue = inputBox.textContent;
             console.log('currentValue ' + currentValue)
@@ -25,15 +25,15 @@ let calculator = (function(){
     click0.addEventListener('click', disp0);
 
     function disp0(){
-        if (inputBox.textContent.length === 0){
+        if (inputBox.textContent.length === 0 && !inputBox.textContent.includes('$')){
             inputBox.textContent = num0.innerHTML;
             lastValue = inputBox.textContent
             console.log('lastValue ' + lastValue)
-        }else if (inputBox.textContent.length < 10 && !holdOp){
+        }else if (inputBox.textContent.length < 10 && !holdOp && !inputBox.textContent.includes('$')){
             inputBox.textContent = inputBox.textContent + num0.innerHTML;
             lastValue = inputBox.textContent
             console.log('lastValue ' + lastValue)
-        }else if (lastValue){
+        }else if (inputBox.textContent.length < 10 && lastValue && !inputBox.textContent.includes('$')){
             inputBox.textContent = inputBox.textContent + num0.innerHTML;
             currentValue = inputBox.textContent;
             console.log('currentValue ' + currentValue)
@@ -46,11 +46,11 @@ let calculator = (function(){
     function disp00(){
         if (inputBox.textContent.length === 0){
 
-        }else if (inputBox.textContent.length < 9 && !holdOp){
+        }else if (inputBox.textContent.length < 9 && !holdOp && !inputBox.textContent.includes('$')){
             inputBox.textContent = inputBox.textContent + num00.innerHTML;
             lastValue = inputBox.textContent
             console.log('lastValue ' + lastValue)
-        }else if (lastValue){
+        }else if (inputBox.textContent.length < 9 && lastValue && !inputBox.textContent.includes('$')){
             inputBox.textContent = inputBox.textContent + num00.innerHTML;
             currentValue = inputBox.textContent;
             console.log('currentValue ' + currentValue)
@@ -73,20 +73,16 @@ let calculator = (function(){
         if (holdOp === 'add'){
             lastValue = Number(lastValue) + Number(currentValue)
             console.log("lastValue " + lastValue)
-            inputBox.textContent = lastValue;
         }else if (holdOp === 'subtract'){
             lastValue = Number(lastValue) - Number(currentValue)
             console.log("lastValue " + lastValue)
-            inputBox.textContent = lastValue;
         }else if (holdOp === 'multiply'){
             lastValue = Number(lastValue) * Number(currentValue)
             console.log("lastValue " + lastValue)
-            inputBox.textContent = lastValue;
         }
         else if (holdOp === 'divide'){
             lastValue = Number(lastValue) / Number(currentValue)
             console.log("lastValue " + lastValue)
-            inputBox.textContent = lastValue;
         }
     }
 
@@ -201,6 +197,22 @@ let calculator = (function(){
             console.log(balValue)
             dispClear();
         }
+    }
+
+    let clickItem = document.querySelectorAll('.menuItem');
+    for (let i = 0; i<clickItem.length; i++){
+    clickItem[i].addEventListener('click', dispItem);
+    function dispItem(){
+            inputBox.textContent = document.querySelector(".menuItem").childNodes[7].textContent;
+            lastValue = parseFloat(inputBox.textContent);
+            console.log('lastValue ' + lastValue)
+        
+        // else if (inputBox.textContent.length < 10 && lastValue || lastValue === 0 && holdOp !== 'equal'){
+        //     inputBox.textContent = inputBox.textContent + document.getElementsByClassName('menuItem')[i].innerHTML;
+        //     currentValue = inputBox.textContent;
+        //     console.log('currentValue ' + currentValue)
+        // }
+    }
     }
 
 return {
