@@ -12,6 +12,7 @@ h1{
     display: flex;
 }
 .calcWrapper{
+    width: 100%;
 }
 #inputBox{
     width: 335px;
@@ -44,15 +45,27 @@ button{
 }
 .menu{
     display: flex;
+    width: 100%;
+    height: 60vh;
+    flex-wrap: wrap;
     color: rgb(185, 20, 20);
     font-size: 30px;
     flex-direction: column;
+    align-items: flex-end;
+}
+.menuItem{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-evenly;
 }
 .menu span{
     background: beige;
     border-radius: 5px;
 }
 .menuImg{
+    /* display: flex;
+    justify-content: right; */
     width: 100px;
     border-radius: 5px;
 }
