@@ -203,8 +203,9 @@ let calculator = (function(){
     for (let i = 0; i<clickItem.length; i++){
     clickItem[i].addEventListener('click', dispItem);
     function dispItem(){
-            inputBox.textContent = document.querySelector(".menuItem").childNodes[7].textContent;
-            lastValue = parseFloat(inputBox.textContent);
+            inputBox.textContent = document.querySelector(".menuItem").childNodes[5].textContent;
+            lastValue = parseFloat(inputBox.textContent.substring(1));
+            console.log(inputBox.textContent)
             console.log('lastValue ' + lastValue)
         
         // else if (inputBox.textContent.length < 10 && lastValue || lastValue === 0 && holdOp !== 'equal'){

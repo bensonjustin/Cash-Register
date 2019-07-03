@@ -36,6 +36,10 @@ button{
     margin: 5px;
     border-radius: 10px;
 }
+button:hover{
+    background: rgb(185, 20, 20);
+    transition: all 500ms ease;
+}
 #clear{
     font-size: 18px;
 }
@@ -53,11 +57,17 @@ button{
     flex-direction: column;
     align-items: flex-end;
 }
+.space{
+    width: 100%;
+}
 .menuItem{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    justify-content: space-evenly;
+}
+.menuImg:hover{
+    height: 120%;
+    transition: all 500ms ease;
 }
 .menu span{
     background: beige;
